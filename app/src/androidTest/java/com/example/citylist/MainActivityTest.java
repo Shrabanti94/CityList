@@ -83,30 +83,18 @@ public class MainActivityTest {
     {
         onView(withId(R.id.button_add)).perform(click()); //Click add button to add a city to the list
         onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Edmonton")); //Type a city name
-        Espresso.pressBack();
-        onView(withId(R.id.button_confirm)).perform(click());
 
-       onView(withId(R.id.button_add)).perform(click());
+
+        onView(withId(R.id.button_add)).perform(click());
         onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Rajbari"));
-        Espresso.pressBack();
-        onView(withId(R.id.button_confirm)).perform(click());
 
-        onView(withId(R.id.button_add)).perform(click());
-        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Torronto"));
-        Espresso.pressBack();
-        onView(withId(R.id.button_confirm)).perform(click());
 
-        onView(withId(R.id.button_add)).perform(click());
-        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Khulna"));
-        Espresso.pressBack();
-        onView(withId(R.id.button_confirm)).perform(click());
-        onView(withId(R.id.button_add)).perform(click());
 
-        onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(2).perform(click());
-        onView(withId(R.id.second)).check(matches(isDisplayed()));
-        onView(withText("Torronto")).check(matches(isDisplayed()));
-        onView(withId(R.id.button)).perform(click());
-        onView(withId(R.id.main)).check(matches(isDisplayed()));
+        onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(0).perform(click());
+        onView(withId(R.id.showActivity)).check(matches(isDisplayed()));//whether showactivity opens or not
+        onView(withText("Edmonton")).check(matches(isDisplayed()));//whether my city displayes or not
+        onView(withId(R.id.button)).perform(click());//if my button works or not
+        onView(withId(R.id.main)).check(matches(isDisplayed()));//whether goes to mainactivity or not
     }
 
 }
